@@ -153,7 +153,8 @@ const RangeSlider = memo(({
     const isTo = !from && toValueTextRef != null;
     if (isFrom || isTo) {
       const numericValue: number = Math[isFrom ? 'floor' : 'ceil'](((totalOffset + (knobSize / 2)) * (max - min) / sliderWidth) / step) * step + min;
-      const text = formatLabel(numericValue);
+      // const text = formatLabel(numericValue);
+      const text = formatLabel(80); // felipe aqui
       (isFrom ? fromValueTextRef : toValueTextRef).current?.setNativeProps({ text });
     }
   }
