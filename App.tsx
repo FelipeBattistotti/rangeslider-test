@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { StatusBar } from 'expo-status-bar'
 import {
   StyleSheet,
-  View
+  View,
+  Text
 } from 'react-native'
 import { returnsTimeInString } from './src/utils/time'
 
@@ -47,20 +48,33 @@ export default function App() {
     <>
       <StatusBar style="auto" />
       <View style={styles.container0}>
-        <RangeSlider
-          min={0}
-          max={1439}
-          initialFromValue={0}
-          fromValueOnChange={value => setFromHourValues(value)}
-          toValueOnChange={value => setToHourValues(value)}
-          styleSize={18}
-          showValueLabels //
-          showRangeLabels={false}
-          fromKnobColor='#224488'
-          toKnobColor='#224488'
-          inRangeBarColor='#2255BB'
-          valueLabelsBackgroundColor='#224488'
-        />
+        <View style={styles.containerRangeSlider1}>
+          <RangeSlider
+            min={0}
+            max={1439}
+            initialFromValue={0}
+            fromValueOnChange={value => setFromHourValues(value)}
+            toValueOnChange={value => setToHourValues(value)}
+            styleSize={18}
+            showValueLabels //
+            showRangeLabels={false}
+            fromKnobColor='#224488'
+            toKnobColor='#224488'
+            inRangeBarColor='#2255BB'
+            valueLabelsBackgroundColor='#224488'
+          />
+        </View>
+        <View style={styles.containerRangeSlider2}>
+          <Text style={styles.textRangeSlider}>
+            {fromValueStr}
+          </Text>
+          <Text style={styles.textRangeSliderBottom}>
+            Horário
+          </Text>
+          <Text style={[styles.textRangeSlider, styles.textRangeSliderRight]}>
+            {toValueStr}
+          </Text>
+        </View>
       </View>
     </>
   )
@@ -69,5 +83,31 @@ export default function App() {
 const styles = StyleSheet.create({
   container0: {
     flex: 1
+  },
+  containerRangeSlider1: {
+    marginTop: 200,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-evenly'
+  },
+  containerRangeSlider2: {
+    marginTop: -20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around'
+  },
+  textRangeSlider: {
+    marginRight: '12%',
+    fontSize: 16,
+    color: '#001122'
+  },
+  textRangeSliderRight: {
+    marginRight: '0%',
+    marginLeft: '12%'
+  },
+  textRangeSliderBottom: {
+    fontSize: 14,
+    color: '#A7BDC9',
+    textAlign: 'center'
   }
 })
