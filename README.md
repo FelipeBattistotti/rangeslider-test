@@ -1,4 +1,4 @@
-# calendar-test
+# rangeslider-test
 
 RangeSlider Tests before Production
 
