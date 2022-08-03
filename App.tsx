@@ -6,6 +6,8 @@ import {
 } from 'react-native'
 import { returnsTimeInString } from './src/utils/time'
 
+import RangeSlider from './src/RangeSlider'
+
 export default function App() {
 
   /**
@@ -45,6 +47,20 @@ export default function App() {
     <>
       <StatusBar style="auto" />
       <View style={styles.container0}>
+        <RangeSlider
+          min={0}
+          max={1439}
+          initialFromValue={0}
+          fromValueOnChange={value => setFromHourValues(value)}
+          toValueOnChange={value => setToHourValues(value)}
+          styleSize={18}
+          showValueLabels //
+          showRangeLabels={false}
+          fromKnobColor='#224488'
+          toKnobColor='#224488'
+          inRangeBarColor='#2255BB'
+          valueLabelsBackgroundColor='#224488'
+        />
       </View>
     </>
   )
