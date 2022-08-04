@@ -53,15 +53,17 @@ export default function App() {
             min={0}
             max={1439}
             initialFromValue={0}
-            fromValueOnChange={value => setFromHourValues(value)}
-            toValueOnChange={value => setToHourValues(value)}
             styleSize={18}
             showValueLabels //
             showRangeLabels={false}
+            knobSize={44}
             fromKnobColor='#224488'
             toKnobColor='#224488'
             inRangeBarColor='#2255BB'
             valueLabelsBackgroundColor='#224488'
+            fromValueOnChange={value => setFromHourValues(value)}
+            toValueOnChange={value => setToHourValues(value)}
+            labelFormatter={value => returnsTimeInString(value)}
           />
         </View>
         <View style={styles.containerRangeSlider2}>
